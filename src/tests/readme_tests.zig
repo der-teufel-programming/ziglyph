@@ -156,9 +156,9 @@ test "SentenceIterator" {
 
     comptime var ct_iter = ComptimeSentenceIterator(input){};
     const n = comptime ct_iter.count();
-    var sentences: [n]Sentence = undefined;
+    comptime var sentences: [n]Sentence = undefined;
     comptime {
-        var ct_i: usize = 0;
+        comptime var ct_i: usize = 0;
         while (ct_iter.next()) |sentence| : (ct_i += 1) {
             sentences[ct_i] = sentence;
         }
